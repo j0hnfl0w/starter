@@ -1,5 +1,4 @@
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
 
 <template lang="pug">
 .row.full-width.bg-red

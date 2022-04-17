@@ -8,7 +8,7 @@
 
 /* eslint-env node */
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { configure } = require('quasar/wrappers');
+const { configure } = require('quasar/wrappers')
 const AutoImportPlugin = require('unplugin-auto-import/webpack')
 
 module.exports = configure(function (ctx) {
@@ -72,17 +72,19 @@ module.exports = configure(function (ctx) {
       // https://quasar.dev/quasar-cli/handling-webpack
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
       chainWebpack(chain) {
-        chain.plugin('unplugin-auto-import')
-          .use(AutoImportPlugin({
+        chain.plugin('unplugin-auto-import').use(
+          AutoImportPlugin({
             imports: [
               'vue',
               'vue-router',
               // 'vuex'
             ],
-            dts: true
-          }))
+            dts: true,
+          })
+        )
         // Add pug
-        chain.module.rule('pug')
+        chain.module
+          .rule('pug')
           .test(/\.pug$/)
           .use('pug-plain-loader')
           .loader('pug-plain-loader')
@@ -113,10 +115,7 @@ module.exports = configure(function (ctx) {
       // directives: [],
 
       // Quasar plugins
-      plugins: [
-        'Notify',
-        'Dialog'
-      ],
+      plugins: ['Notify', 'Dialog'],
     },
 
     // animations: 'all', // --- includes all animations
@@ -238,5 +237,5 @@ module.exports = configure(function (ctx) {
         // extendWebpackPreload also available besides this chainWebpackPreload
       },
     },
-  };
-});
+  }
+})
